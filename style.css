@@ -1,0 +1,875 @@
+:root {
+    --wine: #6b1030;
+    --dark: #3a0016;
+    --gold: #c9a24b;
+    --cream: #fdf4e3;
+    --ivory: #f1e4c8;
+    --ink: #5a3a2a;
+    --safe-t: env(safe-area-inset-top, 0px);
+    --safe-b: env(safe-area-inset-bottom, 0px)
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    background: #e9dcc0;
+    font-family: 'Noto Sans Malayalam', 'Noto Serif Malayalam', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    overflow-x: hidden
+}
+
+body.lock {
+    height: 100vh;
+    overflow: hidden
+}
+
+.wrap {
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--cream);
+    box-shadow: 0 0 40px #0002;
+    position: relative
+}
+
+.script {
+    font-family: 'Noto Serif Malayalam', serif;
+    color: var(--wine)
+}
+
+.eyebrow {
+    font-size: .7rem;
+    letter-spacing: .18em;
+    color: #9a7b55;
+    text-align: center
+}
+
+.orn {
+    text-align: center;
+    color: var(--gold);
+    letter-spacing: .6em;
+    margin: .9rem 0;
+    font-size: .8rem
+}
+
+/* curtain */
+#curtain {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    background: #2a0010;
+    transition: visibility 0s 1.6s
+}
+
+#curtain.open {
+    visibility: hidden
+}
+
+.panel {
+    width: 50%;
+    max-width: 240px;
+    height: 100%;
+    background: repeating-linear-gradient(90deg, #4a0a20 0 8%, #8a1c3e 14%, #5c0f28 22%);
+    transition: transform 1.6s cubic-bezier(.7, 0, .2, 1);
+    position: relative
+}
+
+.panel.l {
+    border-right: 3px solid var(--gold)
+}
+
+.panel.r {
+    border-left: 3px solid var(--gold)
+}
+
+.open .l {
+    transform: translateX(-110%)
+}
+
+.open .r {
+    transform: translateX(110%)
+}
+
+.valance {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(#caa24c, #7a5a1c);
+    border-radius: 0 0 50% 50%/0 0 100% 100%;
+    z-index: 2;
+    opacity: .9
+}
+
+.cur-msg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 3;
+    text-align: center;
+    transition: opacity .6s;
+    padding: 0 1rem
+}
+
+.open .cur-msg {
+    opacity: 0
+}
+
+.cur-msg small {
+    color: #e9d4a2;
+    letter-spacing: .1em;
+    font-size: .8rem
+}
+
+.cur-msg h1 {
+    font-family: 'Noto Serif Malayalam', serif;
+    font-weight: 400;
+    color: #f0dca8;
+    font-size: 2.6rem;
+    text-shadow: 0 2px 8px #0008
+}
+
+button.btn,
+a.btn {
+    display: inline-block;
+    background: var(--wine);
+    color: #fff3d6;
+    border: 1px solid var(--gold);
+    padding: .8rem 1.6rem;
+    font: inherit;
+    font-size: .85rem;
+    letter-spacing: .06em;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: .3s
+}
+
+.cur-msg button {
+    background: #ffffff22;
+    backdrop-filter: blur(4px);
+    border-radius: 30px
+}
+
+.btn:hover {
+    background: var(--dark)
+}
+
+/* hero */
+.hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: calc(var(--safe-t) + 2.5rem) 1.4rem 2rem;
+    text-align: center;
+    background: radial-gradient(ellipse at 50% 40%, #fff6df, #ead7ab);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.hero h2 {
+    font-family: 'Manjari', sans-serif;
+    font-size: 3.5rem;
+    margin: 0;
+    font-weight: 700
+}
+
+.wrap{background:transparent;box-shadow:0 0 40px #0003}
+.bgblur{position:fixed;inset:-30px;z-index:-1;background:linear-gradient(rgba(253,244,227,.72),rgba(253,244,227,.78)),url(assets/bg.jpg) center/cover;filter:blur(14px)}
+body{background:#efe2c6}
+.hero{min-height:100vh;min-height:100svh;background-image:url("assets/gallery-2.jpeg");background-size:cover;background-position:center center;background-repeat:no-repeat;display:flex;flex-direction:column;justify-content:center;align-items:center;}
+.hero h2{font-family:'Chilanka',cursive;font-weight:400;font-size:clamp(3.2rem,10vw,4rem);color:#ffe6a3;text-shadow:0 2px 10px rgba(0,0,0,.95),0 1px 4px #000;margin:0 auto;line-height:1.2;}
+.hero-center{position:relative;z-index:2;width:100%;margin:auto 0}
+.hero .names{font-family:'Manjari',sans-serif;font-weight:700;font-size:clamp(2.4rem,8vw,3.1rem);margin:.6rem 0;color:#fff4d4;letter-spacing:.03em;line-height:1.25;text-shadow:0 2px 12px rgba(0,0,0,.95),0 1px 4px #000,0 0 20px rgba(0,0,0,.8)}
+.hero .names i{display:block;color:#ffd768;font-style:normal;font-size:1.6rem;font-weight:700;margin:.2rem 0;text-shadow:0 2px 8px rgba(0,0,0,.9)}
+.hero .eyebrow{font-family:'Manjari',sans-serif;color:#f7dfa5;font-weight:700;font-size:.9rem;letter-spacing:.12em;text-shadow:0 2px 8px rgba(0,0,0,.95),0 1px 3px #000}
+.hero .date{font-family:'Manjari',sans-serif;color:#ffffff;font-weight:700;font-size:1.15rem;letter-spacing:.15em;margin-top:.6rem;text-shadow:0 2px 8px rgba(0,0,0,.95),0 1px 3px #000}
+h3{font-weight:700;font-size:1.8rem;line-height:1.5}
+.intro .names{font-weight:700;font-size:2.1rem}
+.intro{background:rgba(253,244,227,.55)}
+section{background:rgba(253,244,227,.45)}
+.count{background:rgba(236,220,185,.7)}
+.fam{background:rgba(250,240,215,.55)}
+.end{background:rgba(58,0,22,.9)}
+.card,.box,.cd div{background:rgba(255,250,240,.88)}
+.intro p,.fam p,.box p{font-weight:500}
+.cur-msg h1{font-family:'Noto Serif Malayalam',serif;font-weight:700;font-size:2.2rem}
+#mute{position:fixed;right:14px;bottom:calc(14px + var(--safe-b));z-index:40;width:42px;height:42px;border-radius:50%;border:1px solid var(--gold);background:var(--wine);color:#fff3d6;font-size:1.1rem;cursor:pointer}
+
+.bgblur {
+    position: fixed;
+    inset: -30px;
+    z-index: -1;
+    background: linear-gradient(rgba(253, 244, 227, .72), rgba(253, 244, 227, .78)), url(assets/bg.jpg) center/cover;
+    filter: blur(14px)
+}
+
+body {
+    background: #efe2c6
+}
+
+.hero {
+    background: url(assets/hero.jpg) 55% center/cover;
+    justify-content: center;
+    align-items: center
+}
+
+.hero h2 {
+    font-family: 'Chilanka', cursive;
+    font-weight: 700;
+    font-size: clamp(3.3rem, 11.5vw, 4.4rem);
+    letter-spacing: .04em;
+    line-height: 1.2;
+    position: absolute;
+    top: calc(var(--safe-t) + clamp(4.8rem, 15.5vh, 7.8rem));
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    color: #ffe6a3;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, .95), 0 1px 4px #000, 0 0 18px rgba(0, 0, 0, .8);
+    z-index: 2
+}
+
+.hero-center {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: auto 0
+}
+
+.hero .names {
+    font-family: 'Manjari', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 8vw, 3.1rem);
+    margin: .6rem 0;
+    color: #fff4d4;
+    letter-spacing: .03em;
+    line-height: 1.25;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, .95), 0 1px 4px #000, 0 0 20px rgba(0, 0, 0, .8)
+}
+
+.hero .names i {
+    display: block;
+    color: #ffd768;
+    font-style: normal;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: .2rem 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .9)
+}
+
+.hero .eyebrow {
+    font-family: 'Manjari', sans-serif;
+    color: #f7dfa5;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .12em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .95), 0 1px 3px #000
+}
+
+.hero .date {
+    font-family: 'Manjari', sans-serif;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: .15em;
+    margin-top: .6rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .95), 0 1px 3px #000
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 1.5
+}
+
+.intro .names {
+    font-weight: 700;
+    font-size: 2.1rem
+}
+
+.intro {
+    background: rgba(253, 244, 227, .55)
+}
+
+section {
+    background: rgba(253, 244, 227, .45)
+}
+
+.count {
+    background: rgba(236, 220, 185, .7)
+}
+
+.fam {
+    background: rgba(250, 240, 215, .55)
+}
+
+.end {
+    background: rgba(58, 0, 22, .9)
+}
+
+.card,
+.box,
+.cd div {
+    background: rgba(255, 250, 240, .88)
+}
+
+.intro p,
+.fam p,
+.box p {
+    font-weight: 500
+}
+
+.cur-msg h1 {
+    font-family: 'Noto Serif Malayalam', serif;
+    font-weight: 700;
+    font-size: 2.2rem
+}
+
+#mute {
+    position: fixed;
+    right: 14px;
+    bottom: calc(14px + var(--safe-b));
+    z-index: 40;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    background: var(--wine);
+    color: #fff3d6;
+    font-size: 1.1rem;
+    cursor: pointer
+}
+
+.hero .names {
+    font-size: 2.6rem;
+    line-height: 1.25;
+    margin: 1rem 0
+}
+
+.hero .names i {
+    display: block;
+    color: var(--gold);
+    font-style: normal;
+    font-size: 1.5rem
+}
+
+.date {
+    letter-spacing: .2em;
+    color: #6a5a45;
+    font-size: 1.05rem;
+    margin-top: .4rem
+}
+
+#petals {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1
+}
+
+.pt {
+    position: absolute;
+    top: -20px;
+    font-size: 12px;
+    animation: fall linear infinite
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg)
+    }
+}
+
+section {
+    padding: 3rem 1.4rem;
+    text-align: center
+}
+
+.intro {
+    background: linear-gradient(var(--cream), #f8ecd0)
+}
+
+.intro p {
+    line-height: 2;
+    font-size: 1rem;
+    margin: 1.2rem 0
+}
+
+.intro .names {
+    font-size: 2.4rem;
+    line-height: 1.3
+}
+
+.intro .names i {
+    display: block;
+    font-style: normal;
+    color: var(--gold);
+    font-size: 1.4rem
+}
+
+h3 {
+    font-family: 'Noto Serif Malayalam', serif;
+    font-weight: 400;
+    color: var(--wine);
+    font-size: 2.2rem;
+    line-height: 1.4;
+    margin: .5rem 0 1rem
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .8rem;
+    margin-top: 1.4rem
+}
+
+.card {
+    background: linear-gradient(#fffaf0, #f7ebcc);
+    border: 1px solid #e0c98c;
+    border-radius: 12px;
+    padding: 1rem .5rem;
+    box-shadow: 0 8px 20px #8a6a2a22
+}
+
+.card svg {
+    width: 80%;
+    height: auto
+}
+
+.card h4 {
+    font-family: 'Noto Serif Malayalam', serif;
+    color: var(--wine);
+    font-size: 1.25rem;
+    margin: .4rem 0
+}
+
+.card b {
+    color: #222;
+    font-weight: 400
+}
+
+.card small {
+    display: block;
+    color: #9a7b55;
+    font-size: .6rem;
+    margin-top: .7rem;
+    letter-spacing: .1em
+}
+
+.count {
+    background: var(--ivory)
+}
+
+.cd {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .5rem;
+    margin-top: 1rem
+}
+
+.cd div {
+    background: #fffaf0;
+    border: 1px solid #dcc58c;
+    padding: .8rem .2rem
+}
+
+.cd b {
+    display: block;
+    font-family: 'Noto Serif Malayalam', serif;
+    font-size: 1.6rem;
+    color: var(--wine)
+}
+
+.cd span {
+    font-size: .7rem;
+    color: #8a6c4a
+}
+
+.box {
+    background: #fffaf0;
+    border: 1px solid #dcc58c;
+    padding: 1.8rem 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 8px 24px #8a6a2a1a;
+    outline: 1px solid #e9d9a8;
+    outline-offset: -8px
+}
+
+.box h4 {
+    font-family: 'Noto Serif Malayalam', serif;
+    font-size: 1.5rem;
+    color: var(--wine);
+    margin: .5rem 0
+}
+
+.box p {
+    margin: .5rem 0;
+    line-height: 1.8
+}
+
+.box .btn {
+    margin-top: 1rem
+}
+
+.fam {
+    background: linear-gradient(#f8ecd0, var(--cream))
+}
+
+.fam p {
+    line-height: 2.2;
+    font-size: 1.1rem;
+    color: var(--wine)
+}
+
+.end {
+    background: var(--dark);
+    color: #f3e5c3;
+    padding: 4rem 1.4rem calc(3rem + var(--safe-b))
+}
+
+.end h3 {
+    color: #f0dca8;
+    font-size: 2.4rem
+}
+
+.end p {
+    margin: .6rem 0;
+    line-height: 1.9
+}
+
+.rv {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1s
+}
+
+.rv.in {
+    opacity: 1;
+    transform: none
+}
+
+.wrap {
+    background: transparent;
+    box-shadow: 0 0 40px #0003
+}
+
+.bgblur {
+    position: fixed;
+    inset: -30px;
+    z-index: -1;
+    background: linear-gradient(rgba(253, 244, 227, .72), rgba(253, 244, 227, .78)), url(assets/bg.jpg) center/cover;
+    filter: blur(14px)
+}
+
+body {
+    background: #efe2c6
+}
+
+.hero {
+    background: url(assets/hero.jpg) 55% center/cover;
+    justify-content: center;
+    align-items: center
+}
+
+.hero h2 {
+    font-family: 'Manjari', sans-serif;
+    font-weight: 700;
+    font-size: clamp(3.3rem, 11.5vw, 4.4rem);
+    letter-spacing: .04em;
+    line-height: 1.2;
+    position: absolute;
+    top: calc(var(--safe-t) + clamp(4.8rem, 15.5vh, 7.8rem));
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    color: #ffe6a3;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, .95), 0 1px 4px #000, 0 0 18px rgba(0, 0, 0, .8);
+    z-index: 2
+}
+
+.hero-center {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: auto 0
+}
+
+.hero .names {
+    font-family: 'Manjari', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 8vw, 3.1rem);
+    margin: .6rem 0;
+    color: #fff4d4;
+    letter-spacing: .03em;
+    line-height: 1.25;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, .95), 0 1px 4px #000, 0 0 20px rgba(0, 0, 0, .8)
+}
+
+.hero .names i {
+    display: block;
+    color: #ffd768;
+    font-style: normal;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: .2rem 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .9)
+}
+
+.hero .eyebrow {
+    font-family: 'Manjari', sans-serif;
+    color: #f7dfa5;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .12em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .95), 0 1px 3px #000
+}
+
+.hero .date {
+    font-family: 'Manjari', sans-serif;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: .15em;
+    margin-top: .6rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .95), 0 1px 3px #000
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 1.5
+}
+
+.intro .names {
+    font-weight: 700;
+    font-size: 2.1rem
+}
+
+.intro {
+    background: rgba(253, 244, 227, .55)
+}
+
+section {
+    background: rgba(253, 244, 227, .45)
+}
+
+.count {
+    background: rgba(236, 220, 185, .7)
+}
+
+.fam {
+    background: rgba(250, 240, 215, .55)
+}
+
+.end {
+    background: rgba(58, 0, 22, .9)
+}
+
+.card,
+.box,
+.cd div {
+    background: rgba(255, 250, 240, .88)
+}
+
+.intro p,
+.fam p,
+.box p {
+    font-weight: 500
+}
+
+.cur-msg h1 {
+    font-family: 'Noto Serif Malayalam', serif;
+    font-weight: 700;
+    font-size: 2.2rem
+}
+
+#mute {
+    position: fixed;
+    right: 14px;
+    bottom: calc(14px + var(--safe-b));
+    z-index: 40;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    background: var(--wine);
+    color: #fff3d6;
+    font-size: 1.1rem;
+    cursor: pointer
+}
+
+.gallery {
+    background: rgba(253, 244, 227, .5);
+    overflow: hidden
+}
+
+.gal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-top: 1.2rem
+}
+
+.arch {
+    width: 78%;
+    max-width: 320px;
+    padding: 10px;
+    background: linear-gradient(#e6c97a, #a9822f);
+    border-radius: 999px 999px 14px 14px;
+    box-shadow: 0 14px 34px #5a3a1a55;
+    cursor: pointer;
+    position: relative;
+    z-index: 1
+}
+
+.archimg {
+    border-radius: 999px 999px 6px 6px;
+    overflow: hidden;
+    border: 3px solid #fff3d6;
+    aspect-ratio: 3/4.1
+}
+
+.arch img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 55%;
+    display: block;
+    transition: transform 1.2s
+}
+
+.arch:hover img {
+    transform: scale(1.06)
+}
+
+.arch figcaption,
+.pola figcaption {
+    font-family: 'Noto Serif Malayalam', serif;
+    color: #fff3d6;
+    font-size: .95rem;
+    padding: .6rem 0 .2rem;
+    font-weight: 600
+}
+
+.pola {
+    width: 84%;
+    max-width: 340px;
+    background: #fffdf7;
+    padding: 10px 10px 6px;
+    transform: rotate(-4deg);
+    margin-top: -2.2rem;
+    margin-left: 22%;
+    box-shadow: 0 12px 28px #3a1a0a44;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: transform .5s
+}
+
+.pola:hover {
+    transform: rotate(-1deg) scale(1.03)
+}
+
+.pola img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block
+}
+
+.pola figcaption {
+    color: var(--wine);
+    text-align: center
+}
+
+.pola::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 42%;
+    width: 70px;
+    height: 22px;
+    background: rgba(201, 162, 75, .65);
+    transform: rotate(3deg)
+}
+
+#lb {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    background: rgba(30, 5, 15, .92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem
+}
+
+#lb.on {
+    display: flex
+}
+
+#lb img {
+    max-width: 100%;
+    max-height: 92vh;
+    border: 6px solid #fff3d6;
+    border-radius: 4px
+}
+
+#lbx {
+    position: absolute;
+    top: calc(14px + var(--safe-t));
+    right: 18px;
+    color: #fff3d6;
+    font-size: 1.6rem;
+    cursor: pointer
+}
+
+/* hero: standard modern sans */
+.hero h2,.hero .names,.hero .names i,.hero .eyebrow,.hero .date{font-family:'Inter','Noto Sans Malayalam',sans-serif}
+.hero h2{font-weight:600;letter-spacing:.01em}
+.hero .names{font-weight:700;letter-spacing:0}
+.hero .date{font-weight:600;letter-spacing:.08em}
+
+
+/* hero v2: Anek Malayalam, mangalyam centred above the names */
+.hero h2,.hero .names,.hero .names i,.hero .eyebrow,.hero .date{font-family:'Anek Malayalam','Noto Sans Malayalam',sans-serif}
+.hero{justify-content:center;align-items:center}
+.hero-center{margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hero h2{position:static;top:auto;left:auto;right:auto;transform:none;width:100%;margin:0 0 .4rem;font-weight:700;font-size:clamp(2.6rem,9vw,3.4rem);letter-spacing:0;line-height:1.3}
+.hero .names{font-weight:800;letter-spacing:0;margin:.3rem 0}
+.hero .date{font-weight:600;letter-spacing:.06em;margin-top:.8rem}
+
+
+/* hero title: calligraphic lettering image */
+.hero h2.mg{margin:0 0 1rem;line-height:0}
+.hero h2.mg img{display:block;margin:0 auto;width:clamp(190px,56vw,250px);height:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.85)) drop-shadow(0 0 14px rgba(0,0,0,.6))}
+
+/* hero text block starts at ~45% of screen height */
+.hero{justify-content:flex-start;padding-top:45vh;padding-top:45svh}
+.hero-center{margin:0}
+
+
+/* FIXED HERO IMAGE: use the image file that actually exists in assets. */
+.hero {
+    background: url("assets/gallery-2.jpeg") center center / cover no-repeat !important;
+    background-color: #efe2c6;
+}
